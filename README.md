@@ -1,45 +1,18 @@
 # EPUB Translator
 
-EPUB Translator is a substantially improved continuation of the original EPUB Translator codebase.
+EPUB Translator is a tool for translating EPUB books with LLMs while preserving the original structure, markup, and reading flow as safely as possible.
 
-The original repo proved the core idea: translate EPUB books with LLMs. This version pushes the project much further in the places that matter in real use: better provider support, a usable UI, a CLI workflow, safer XHTML handling, and much stronger protection against silently truncated or unchanged chapter output.
+It supports both interactive use in the browser and file-to-file translation from the command line, with multiple provider backends including OpenAI, OpenRouter, LM Studio, WebLLM, and OpenCode CLI.
 
-## What is better than the original version
+## Ways to use it
 
-- Safer translation pipeline for real EPUB/XHTML files, including minified chapter HTML
-- Better handling of truncated model output
-- Retry paths when a model returns invalid structured output
-- Retry paths when a model effectively returns the source text unchanged
-- Structural validation before writing translated chapters back into the EPUB
-- Support for multiple providers:
-  - OpenAI
-  - OpenRouter
-  - LM Studio
-  - WebLLM
-  - OpenCode CLI
-- SolidJS browser UI for interactive use
-- Bun/Effect CLI for batch and scripted usage
-- Automated tests around the translation failure modes we hit in real books
+### 1. Browser UI
 
-## What this project does
+Run the local app and translate EPUB files interactively.
 
-EPUB Translator translates EPUB books while trying to preserve the original structure, markup, and reading flow.
+### 2. CLI
 
-It can be used in two ways:
-
-1. **Browser UI** for interactive translation
-2. **CLI** for direct file-to-file translation
-
-## Recommended model choices
-
-If you care most about translation quality and chapter completeness, use a stronger OpenAI model.
-
-- **Best default for serious book translation:** `gpt-5.4`
-- **Cheaper but weaker:** `gpt-5.4-mini`
-- **Local/private option:** LM Studio
-- **Browser-only option:** WebLLM
-
-For long-form books with lots of XHTML, `gpt-5.4` is the safer choice.
+Translate one EPUB into another directly from the terminal.
 
 ## Quick start
 
@@ -113,6 +86,42 @@ bun run translate \
 | `--model` | `-m` | Model id | provider default |
 | `--prompt` |  | Extra translation instructions | optional |
 | `--api-key` | `-k` | API key for cloud providers | optional |
+
+## Based on the original project
+
+This project is based on the original EPUB Translator idea and codebase.
+
+If you want the reference point, see the original project here:
+
+- Original project: https://github.com/gaboe/open-ebook-translator
+
+## What this version does better
+
+- Safer translation pipeline for real EPUB/XHTML files, including minified chapter HTML
+- Better handling of truncated model output
+- Retry paths when a model returns invalid structured output
+- Retry paths when a model effectively returns the source text unchanged
+- Structural validation before writing translated chapters back into the EPUB
+- Support for multiple providers:
+  - OpenAI
+  - OpenRouter
+  - LM Studio
+  - WebLLM
+  - OpenCode CLI
+- SolidJS browser UI for interactive use
+- Bun/Effect CLI for batch and scripted usage
+- Automated tests around the translation failure modes we hit in real books
+
+## Recommended model choices
+
+If you care most about translation quality and chapter completeness, use a stronger OpenAI model.
+
+- **Best default for serious book translation:** `gpt-5.4`
+- **Cheaper but weaker:** `gpt-5.4-mini`
+- **Local/private option:** LM Studio
+- **Browser-only option:** WebLLM
+
+For long-form books with lots of XHTML, `gpt-5.4` is the safer choice.
 
 ## Provider notes
 
