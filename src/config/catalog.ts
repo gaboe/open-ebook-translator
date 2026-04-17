@@ -45,6 +45,10 @@ export const PROVIDERS = {
 
 export type ProviderId = keyof typeof PROVIDERS;
 
+export const BROWSER_PROVIDERS = Object.fromEntries(
+  Object.entries(PROVIDERS).filter(([id]) => id !== "opencode"),
+) as Omit<typeof PROVIDERS, "opencode">;
+
 export const WEBLLM_MODELS = [
   { id: "Qwen3-8B-q4f16_1-MLC", name: "Qwen 3 8B", size: "5.7 GB" },
   { id: "Llama-3.1-8B-Instruct-q4f16_1-MLC", name: "Llama 3.1 8B", size: "5.0 GB" },
