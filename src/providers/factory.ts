@@ -1,6 +1,5 @@
 import { WebLLMProviderImpl } from "../llm/webllm-provider";
 import { LMStudioProviderImpl } from "../llm/lmstudio-provider";
-import { OpenCodeProviderImpl } from "../llm/opencode-provider";
 import { OpenRouterProviderImpl } from "../llm/openrouter-provider";
 import { OpenAIProviderImpl } from "../llm/openai-provider";
 import type { WebLLMProvider } from "../types";
@@ -31,9 +30,7 @@ export function createProvider(options: ProviderOptions): WebLLMProvider {
       });
 
     case "opencode":
-      return new OpenCodeProviderImpl({
-        model: model || PROVIDERS.opencode.defaultModel,
-      });
+      throw new Error("OpenCode CLI provider is not available in the browser");
 
     case "openrouter":
       return new OpenRouterProviderImpl({

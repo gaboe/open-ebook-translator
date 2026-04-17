@@ -2,7 +2,7 @@
 import { EpubZip } from "./epub/zip";
 import { WebLLMProviderImpl } from "./llm/webllm-provider";
 import { LMStudioProviderImpl } from "./llm/lmstudio-provider";
-import { OpenCodeProviderImpl } from "./llm/opencode-provider";
+
 import { OpenRouterProviderImpl } from "./llm/openrouter-provider";
 import { OpenAIProviderImpl } from "./llm/openai-provider";
 import { getProviderConcurrency } from "./providers/factory";
@@ -501,7 +501,7 @@ export async function translate(options: TranslateOptions): Promise<TranslateRes
     chaptersTranslated: 0,
   };
 
-  const isOpenCode = provider instanceof OpenCodeProviderImpl;
+  const isOpenCode = provider.constructor.name === "OpenCodeProviderImpl";
   const isOpenRouter = provider instanceof OpenRouterProviderImpl;
   const isOpenAI = provider instanceof OpenAIProviderImpl;
   const isWebLLM = provider instanceof WebLLMProviderImpl;
