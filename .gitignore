@@ -10,3 +10,4 @@ opensrc/
 
 # local agent workdirs
 .sisyphus/
+.opencode/
