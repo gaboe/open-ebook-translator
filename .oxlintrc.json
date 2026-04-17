@@ -1,0 +1,9 @@
+{
+  "rules": {
+    "correctness": "warn",
+    "suspicious": "warn",
+    "style": "allow",
+    "perf": "allow",
+    "pedantic": "allow"
+  }
+}

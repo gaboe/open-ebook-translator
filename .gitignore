@@ -1,0 +1,12 @@
+.env
+node_modules/
+dist/
+
+# opensrc - source code for packages
+opensrc/
+
+# cache
+.effect-cache/
+
+# local agent workdirs
+.sisyphus/

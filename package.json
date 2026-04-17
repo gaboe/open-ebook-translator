@@ -1,0 +1,61 @@
+{
+  "name": "epub-translator",
+  "version": "1.0.0",
+  "description": "Translate EPUB books using local LLM providers (WebLLM, LM Studio, OpenAI, OpenRouter)",
+  "bin": {
+    "epub-translate": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./providers": {
+      "types": "./dist/providers/index.d.ts",
+      "import": "./dist/providers/index.js"
+    },
+    "./config": {
+      "types": "./dist/config/index.d.ts",
+      "import": "./dist/config/index.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "build:types": "tsc --emitDeclarationOnly",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "translate": "bun run src/cli.ts",
+    "translate:help": "bun run src/cli.ts --help",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "bun run check.ts"
+  },
+  "dependencies": {
+    "@ai-sdk/openai-compatible": "^2.0.30",
+    "@effect/cli": "^0.73.2",
+    "@effect/platform": "^0.94.5",
+    "@effect/platform-bun": "^0.87.1",
+    "@effect/platform-node": "^0.104.1",
+    "@mlc-ai/web-llm": "^0.2.80",
+    "ai": "^6.0.86",
+    "js-tiktoken": "^1.0.21",
+    "jszip": "^3.10.1",
+    "solid-js": "^1.9.11"
+  },
+  "devDependencies": {
+    "@effect/language-service": "^0.74.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1",
+    "vite-plugin-solid": "^2.11.10",
+    "vitest": "^4.0.18"
+  }
+}
