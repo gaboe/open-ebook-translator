@@ -1,5 +1,7 @@
 # open-ebook-translator
 
+**[Live Demo](https://gaboe.github.io/open-ebook-translator/)**
+
 open-ebook-translator is a tool for translating EPUB books with LLMs while preserving the original structure, markup, and reading flow as safely as possible.
 
 It supports both interactive use in the browser and file-to-file translation from the command line, with multiple provider backends including OpenAI, OpenRouter, LM Studio, WebLLM, and OpenCode CLI.
@@ -8,7 +10,7 @@ It supports both interactive use in the browser and file-to-file translation fro
 
 ### 1. Browser UI
 
-Run the local app and translate EPUB files interactively.
+Try it now at **https://gaboe.github.io/open-ebook-translator/** — no install needed. A sample book is included so you can try it right away.
 
 ### 2. CLI
 

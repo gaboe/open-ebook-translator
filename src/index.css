@@ -198,6 +198,22 @@ select:focus,
   margin-top: 4px;
 }
 
+.btn-sample {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.btn-sample:hover {
+  opacity: 0.7;
+}
+
 .file-info {
   display: flex;
   align-items: center;

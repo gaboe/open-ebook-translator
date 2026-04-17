@@ -3,6 +3,7 @@ import { Show } from "solid-js";
 interface Props {
   file: File | null;
   onFile: (f: File) => void;
+  onLoadSample?: () => void;
 }
 
 export default function FileDrop(props: Props) {
@@ -61,6 +62,17 @@ export default function FileDrop(props: Props) {
           <div class="drop-zone-text">Drop EPUB or click</div>
           <div class="drop-zone-hint">.epub</div>
         </div>
+        <Show when={props.onLoadSample}>
+          <button
+            class="btn-sample"
+            onClick={(e) => {
+              e.stopPropagation();
+              props.onLoadSample?.();
+            }}
+          >
+            or try with a sample book
+          </button>
+        </Show>
       </Show>
 
       <input ref={inputRef} type="file" accept=".epub" hidden onChange={handleChange} />

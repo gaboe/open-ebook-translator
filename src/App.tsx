@@ -28,6 +28,26 @@ export default function App() {
   const [settingsOpen, setSettingsOpen] = createSignal(false);
   const [logEntries, setLogEntries] = createSignal<LogEntry[]>([]);
 
+  const handleLoadSample = async () => {
+    try {
+      setStatus("Loading sample book...");
+      setStatusType("info");
+      const base = import.meta.env.BASE_URL;
+      const response = await fetch(`${base}sample.epub`);
+      if (!response.ok) throw new Error("Failed to fetch sample book");
+      const blob = await response.blob();
+      const sampleFile = new File([blob], "the-time-machine-excerpt.epub", {
+        type: "application/epub+zip",
+      });
+      setFile(sampleFile);
+      setStatus("");
+      setStatusType("");
+    } catch (e: any) {
+      setStatus(e.message || "Failed to load sample");
+      setStatusType("error");
+    }
+  };
+
   const handleDownload = async () => {
     try {
       setStatus("Downloading model...");
@@ -212,7 +232,7 @@ export default function App() {
         />
       </div>
 
-      <FileDrop file={file()} onFile={setFile} />
+      <FileDrop file={file()} onFile={setFile} onLoadSample={handleLoadSample} />
 
       <TranslateButton
         disabled={!file() || translating() || (settings.provider === "webllm" && !downloaded())}
