@@ -6,7 +6,7 @@ import {
   updateApiKey,
   updateBaseUrl,
 } from "../stores/settingsStore";
-import { PROVIDERS, type ProviderId, getModelsForProvider } from "../config/catalog";
+import { BROWSER_PROVIDERS, type ProviderId, getModelsForProvider } from "../config/catalog";
 
 interface Props {
   onWebLLMDownload?: () => void;
@@ -23,7 +23,7 @@ export default function ProviderSettingsPanel(props: Props) {
   return (
     <div>
       <div class="provider-tabs">
-        <For each={Object.values(PROVIDERS)}>
+        <For each={Object.values(BROWSER_PROVIDERS)}>
           {(provider) => (
             <button
               class={`provider-tab ${settings.provider === provider.id ? "active" : ""}`}

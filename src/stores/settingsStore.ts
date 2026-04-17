@@ -1,6 +1,6 @@
 import { createEffect } from "solid-js";
 import { createStore } from "solid-js/store";
-import { type ProviderId, type Language, getDefaultModel } from "../config/catalog";
+import { type ProviderId, type Language, getDefaultModel, BROWSER_PROVIDERS } from "../config/catalog";
 
 export interface SettingsState {
   provider: ProviderId;
@@ -47,14 +47,19 @@ function loadSettings(): SettingsState {
 
     const parsed = JSON.parse(stored);
 
-    // Merge with defaults to handle new fields/versions
-    return {
+    const merged = {
       ...DEFAULT_SETTINGS,
       ...parsed,
       models: { ...DEFAULT_SETTINGS.models, ...parsed.models },
       apiKeys: { ...DEFAULT_SETTINGS.apiKeys, ...parsed.apiKeys },
       baseUrls: { ...DEFAULT_SETTINGS.baseUrls, ...parsed.baseUrls },
     };
+
+    if (!(merged.provider in BROWSER_PROVIDERS)) {
+      merged.provider = DEFAULT_SETTINGS.provider;
+    }
+
+    return merged;
   } catch (e) {
     console.error("Failed to load settings:", e);
     return JSON.parse(JSON.stringify(DEFAULT_SETTINGS));
