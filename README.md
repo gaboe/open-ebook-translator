@@ -1,6 +1,6 @@
 # EPUB Translator
 
-This project is a substantially improved continuation of the original EPUB Translator codebase.
+EPUB Translator is a substantially improved continuation of the original EPUB Translator codebase.
 
 The original repo proved the core idea: translate EPUB books with LLMs. This version pushes the project much further in the places that matter in real use: better provider support, a usable UI, a CLI workflow, safer XHTML handling, and much stronger protection against silently truncated or unchanged chapter output.
 
