@@ -1,6 +1,6 @@
-# EPUB Translator
+# open-ebook-translator
 
-EPUB Translator is a tool for translating EPUB books with LLMs while preserving the original structure, markup, and reading flow as safely as possible.
+open-ebook-translator is a tool for translating EPUB books with LLMs while preserving the original structure, markup, and reading flow as safely as possible.
 
 It supports both interactive use in the browser and file-to-file translation from the command line, with multiple provider backends including OpenAI, OpenRouter, LM Studio, WebLLM, and OpenCode CLI.
 
@@ -89,7 +89,7 @@ bun run translate \
 
 ## Based on the original project
 
-This project is based on the original EPUB Translator idea and codebase.
+This project is based on the original project idea and codebase.
 
 If you want the reference point, see the original project here:
 
